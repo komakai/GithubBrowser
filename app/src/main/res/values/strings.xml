@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Github Browser</string>
+    <string name="searchbox_label">ユーザー名</string>
+    <string name="follower_count">フォロワー数</string>
+    <string name="following_count">フォロイー数</string>
+    <string name="language">言語</string>
+    <string name="no_description">説明文なし</string>
+    <string name="no_language">言語なし</string>
+    <string name="no_fullname">フルネーム未設定</string>
+    <string name="error_message">エラーが発生しました</string>
+    <string name="no_respository">リポジトリがありません</string>
+    <string name="no_user">一致するユーザーがありません</string>
+
+</resources>

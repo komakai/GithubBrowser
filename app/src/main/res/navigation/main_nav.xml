@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--suppress NavigationFile -->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav.xml"
+    app:startDestination="@id/searchUsersFragment">
+
+    <fragment
+        android:id="@+id/searchUsersFragment"
+        android:name="net.telepathix.githubbrowse.ui.search.SearchUsersFragment"
+        android:label="fragment_search_user"
+        tools:layout="@layout/search_users_fragment" >
+        <action
+            android:id="@+id/action_searchUsersFragment_to_userFragment"
+            app:destination="@id/userRepositoriesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userRepositoriesFragment"
+        android:name="net.telepathix.githubbrowse.ui.user.UserFragment"
+        android:label="fragment_user_repositories"
+        tools:layout="@layout/user_fragment" >
+        <argument
+            android:name="userId"
+            app:argType="string" />
+    </fragment>
+</navigation>

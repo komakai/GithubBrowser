@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/userAvatar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:padding="@dimen/small_margin"
+        android:layout_width="@dimen/avatar_size_big"
+        android:layout_height="@dimen/avatar_size_big"
+        android:scaleType="centerCrop"
+        tools:ignore="ContentDescription"/>
+
+    <TextView
+        android:id="@+id/userTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/userAvatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        android:layout_margin="@dimen/small_margin"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="komakai(Giles Payne)"/>
+
+    <TextView
+        android:id="@+id/followerCountLabel"
+        app:layout_constraintTop_toBottomOf="@+id/userTitle"
+        app:layout_constraintStart_toEndOf="@+id/userAvatar"
+        app:layout_constraintHorizontal_bias="0"
+        android:layout_margin="@dimen/small_margin"
+        android:text="@string/follower_count"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/followerCount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/followerCountLabel"
+        app:layout_constraintBaseline_toBaselineOf="@id/followerCountLabel"
+        app:layout_constraintHorizontal_bias="0"
+        android:layout_margin="@dimen/small_margin"
+        android:textSize="13sp"
+        android:textColor="@color/gray_dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="21"/>
+
+    <Space
+        android:id="@+id/spacer"
+        android:layout_width="20dp"
+        android:layout_height="1dp"
+        app:layout_constraintBaseline_toBaselineOf="@id/followerCountLabel"
+        app:layout_constraintStart_toEndOf="@+id/followerCount" />
+    
+    <TextView
+        android:id="@+id/followingCountLabel"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/followerCount"
+        app:layout_constraintBaseline_toBaselineOf="@id/followerCountLabel"
+        app:layout_constraintHorizontal_bias="0"
+        android:layout_margin="@dimen/small_margin"
+        android:text="@string/following_count"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/followingCount"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/followingCountLabel"
+        app:layout_constraintBaseline_toBaselineOf="@id/followerCountLabel"
+        app:layout_constraintHorizontal_bias="0"
+        android:layout_margin="@dimen/small_margin"
+        android:textSize="13sp"
+        android:textColor="@color/gray_dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="1"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/repositoryList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userAvatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:scrollbars="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userAvatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/gray_light"
+        android:visibility="invisible"/>
+
+    <ProgressBar
+        android:id="@+id/loadingIndicator"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userAvatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_gravity="center"
+        android:visibility="invisible"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
