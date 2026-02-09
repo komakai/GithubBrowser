@@ -1,3 +1,4 @@
+import com.android.build.api.dsl.ApplicationExtension
 import java.util.Properties
 import java.io.InputStreamReader
 import java.io.FileInputStream
@@ -20,18 +21,18 @@ fun Project.getLocalProperty(key: String, file: String = "local.properties"): St
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("com.google.devtools.ksp") version "2.0.21-1.0.25"
+    id("com.google.devtools.ksp") version "2.3.5"
     alias(libs.plugins.hilt)
 }
 
-android {
+configure<ApplicationExtension> {
     namespace = "net.telepathix.githubbrowse"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "net.telepathix.githubbrowse"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
@@ -54,11 +55,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
     buildFeatures {
         buildConfig = true
