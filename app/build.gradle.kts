@@ -36,10 +36,11 @@ configure<ApplicationExtension> {
         versionCode = 1
         versionName = "1.0"
 
-        val pat = getLocalProperty(key = "github.pat")
+        val patLocalProp = getLocalProperty(key = "github.pat")
+        val pat = if (patLocalProp != null && patLocalProp.isNotEmpty()) patLocalProp else System.getenv("GHPAT")
         buildConfigField("String", "GITHUB_PAT", "\"$pat\"")
         if (pat == null || pat.isEmpty()) {
-            project.logger.warn("Property github.pat not defined in local.properties. Requests will be rate-limited!")
+            project.logger.warn("Property github.pat not defined in local.properties and environment variable GHPAT not set. Requests will be rate-limited!")
         }
 
         testInstrumentationRunner = "net.telepathix.githubbrowse.testing.GithubBrowserTestRunner"
